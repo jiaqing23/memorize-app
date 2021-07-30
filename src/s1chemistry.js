@@ -95,7 +95,7 @@ const s1chemistry = [
         answer: "1. 加Cu和浓硫酸，生成红棕色刺激性气体 @ Cu + 2NO₃⁻+ 4H⁺ → Cu²⁺ +NO₂ +2H₂O @ 2. 棕色环法 @ NO₃⁻ + H₂SO₄ → HSO₄⁻ + HNO₃ @ 2HNO₃ + 6FeSO₄ + 3H₂SO₄ → 3Fe₂(SO4)₃  + 4H₂O + 2NO @ FeSO₄ + NO → FeSO₄.NO （棕色沉淀，不稳定）"
     },
     {
-        question: "鉴定PO₄₃⁻",
+        question: "鉴定PO₄³⁻",
         answer: "加入AgNO₃或者Ba(NO₃)₂，生成Ag₃PO₄或者Ba₃(PO₄)₂,此沉淀溶于稀硝酸生成金属离子和H₂PO₄⁻ "
     },
     {

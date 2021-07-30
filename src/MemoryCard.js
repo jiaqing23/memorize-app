@@ -11,6 +11,7 @@ import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
 import Box from '@material-ui/core/Box';
 import { RiEmotionHappyLine, RiEmotionHappyFill, RiEmotionUnhappyFill, RiEmotionUnhappyLine } from 'react-icons/ri'
+import { Widgets } from '@material-ui/icons';
 
 
 const useStyles = makeStyles((theme) => ({
@@ -37,7 +38,8 @@ const useStyles = makeStyles((theme) => ({
     fontFamily: 'Noto Sans SC',
   },
   button: {
-    marginLeft: 'auto'
+    marginLeft: 'auto',
+    width: '50%'
   }
 }));
 

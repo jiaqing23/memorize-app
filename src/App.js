@@ -27,6 +27,9 @@ const useStyles = makeStyles((theme) => ({
   },
   title: {
     flexGrow: 1,
+  },
+  button:{
+    minWidth: "10%"
   }
 }));
 
@@ -58,21 +61,20 @@ function App() {
           <Typography variant="h6" className={classes.title}>
             高一化学
           </Typography>
-          <Button color="inherit" variant="outlined" onClick={handleClickOpen}>需加强的知识点</Button>
+          <Button color="inherit" variant="outlined" className={classes.button} onClick={handleClickOpen}>需加强的知识点</Button>
         </Toolbar>
       </AppBar>
       <Box m={5} pt={3}>
         <MemoryCard questions={questions}/>
       </Box >
       <Dialog fullScreen open={open} onClose={handleClose} TransitionComponent={Transition}>
-        <AppBar className={classes.appBar } position="static" color="primary" style={{ background: '#1d6365' }}>
+        <AppBar className={classes.appBar} position="static" color="primary" style={{ background: '#1d6365' }}>
           <Toolbar>
             <Typography variant="h6" className={classes.title}>需加强的知识点</Typography>
-            <Button color="inherit" variant="outlined" onClick={handleClose}>关闭</Button>
+            <Button color="inherit" variant="outlined" className={classes.button} onClick={handleClose}>关闭</Button>
           </Toolbar>
         </AppBar>
         <List>
-        
           {[...questions].sort((a,b)=>(b['hardCount']-a['hardCount'])).map((question) => (
             question['hardCount']>0?(
             <>
