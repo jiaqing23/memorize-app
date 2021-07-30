@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/core/styles';
 import MemoryCard from './MemoryCard'
-import React, {createContext, useState, useContext} from 'react';
+import React from 'react';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Dialog from '@material-ui/core/Dialog';
@@ -12,7 +12,6 @@ import AppBar from '@material-ui/core/AppBar';
 import Toolbar from '@material-ui/core/Toolbar';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
-import CloseIcon from '@material-ui/icons/Close';
 import Slide from '@material-ui/core/Slide';
 import s1chemistry from './s1chemistry'
 import icon from './images/icon.png'
@@ -41,7 +40,7 @@ function App() {
   const classes = useStyles();
   const [open, setOpen] = React.useState(false);
 
-  const [questions, setQuestions] = React.useState(s1chemistry)
+  const [questions] = React.useState(s1chemistry)
 
   const handleClickOpen = () => {
     setOpen(true);
@@ -56,7 +55,7 @@ function App() {
       <AppBar position="static" color="primary" style={{ background: '#1d6365' }}>
         <Toolbar>
          <IconButton edge="start" color="inherit" aria-label="menu" disabled>
-         <img src={icon} width="30px" />
+         <img src={icon} width="30px" alt=""/>
           </IconButton> 
           <Typography variant="h6" className={classes.title}>
             高一化学

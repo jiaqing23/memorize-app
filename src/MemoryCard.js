@@ -8,11 +8,7 @@ import CardContent from '@material-ui/core/CardContent';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import 'katex/dist/katex.min.css';
-import { InlineMath, BlockMath } from 'react-katex';
-import Box from '@material-ui/core/Box';
-import { RiEmotionHappyLine, RiEmotionHappyFill, RiEmotionUnhappyFill, RiEmotionUnhappyLine } from 'react-icons/ri'
-import { Widgets } from '@material-ui/icons';
-
+import {RiEmotionHappyFill, RiEmotionUnhappyFill} from 'react-icons/ri'
 
 const useStyles = makeStyles((theme) => ({
   root: {
@@ -55,8 +51,6 @@ function shuffleArray(array) {
 function MemoryCard({questions}) {
   const [showAnswer, setShowAnswer] = useState(false);
   const classes = useStyles();
-  const inlineFormula = `\\mathrm{CO^{2+} + C \\rightarrow      2 C_0}`;
-  const blockFormula = `\\int_0^\\infty x^2 dx`;
 
   const handleShowAnswer = (event) => {
     setShowAnswer(!showAnswer);
@@ -64,12 +58,11 @@ function MemoryCard({questions}) {
 
   const [currentQuestion, setCurrentQuestion] = useState({'question':'', 'answer':''})
   const [nextQuestionIndex, setNextQuestionIndex] = useState(0);
-  const [randomSeq, setRandomSeq] = useState([...Array(questions.length).keys()]);
-  const [hardCount, setHardCount] = useState(new Array(questions.length).fill(0));
+  const [randomSeq] = useState([...Array(questions.length).keys()]);
 
   const handleNext = (event) => {
     setShowAnswer(false);
-    if (nextQuestionIndex == 0) {
+    if (nextQuestionIndex === 0) {
       shuffleArray(randomSeq);
     }
     setCurrentQuestion(questions[randomSeq[nextQuestionIndex]]);
@@ -83,6 +76,7 @@ function MemoryCard({questions}) {
 
   useEffect(() => {
     handleNext();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   return (
