@@ -1,20 +1,16 @@
 import React, { useState, useEffect } from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Grid from '@material-ui/core/Grid';
-import Paper from '@material-ui/core/Paper';
 import Card from '@material-ui/core/Card';
 import CardActionArea from '@material-ui/core/CardActionArea';
 import CardActions from '@material-ui/core/CardActions';
 import CardContent from '@material-ui/core/CardContent';
-import CardMedia from '@material-ui/core/CardMedia';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import test from './images/rotating_card_thumb.jpg'
 import 'katex/dist/katex.min.css';
 import { InlineMath, BlockMath } from 'react-katex';
 import Box from '@material-ui/core/Box';
-import s1chemistry from './s1chemistry'
-import {RiEmotionHappyLine, RiEmotionHappyFill, RiEmotionUnhappyFill, RiEmotionUnhappyLine} from 'react-icons/ri'
+import { RiEmotionHappyLine, RiEmotionHappyFill, RiEmotionUnhappyFill, RiEmotionUnhappyLine } from 'react-icons/ri'
 
 
 const useStyles = makeStyles((theme) => ({
@@ -26,7 +22,7 @@ const useStyles = makeStyles((theme) => ({
   },
   top: {
     flex: 1,
-    background: '#A6C0CD',
+    background: '#ddd8ab',
     display: 'flex',
     alignItems: 'center'
   },
@@ -54,7 +50,7 @@ function shuffleArray(array) {
   }
 }
 
-function MemoryCard() {
+function MemoryCard({questions}) {
   const [showAnswer, setShowAnswer] = useState(false);
   const classes = useStyles();
   const inlineFormula = `\\mathrm{CO^{2+} + C \\rightarrow      2 C_0}`;
@@ -64,17 +60,23 @@ function MemoryCard() {
     setShowAnswer(!showAnswer);
   };
 
-  const [currentQuestion, setCurrentQuestion] = useState({})
+  const [currentQuestion, setCurrentQuestion] = useState({'question':'', 'answer':''})
   const [nextQuestionIndex, setNextQuestionIndex] = useState(0);
-  const [randomSeq, setRandomSeq] = useState([...Array(s1chemistry.length).keys()]);
-  const [hardCount, setHardCount] = useState(new Array(s1chemistry.length).fill(0));
+  const [randomSeq, setRandomSeq] = useState([...Array(questions.length).keys()]);
+  const [hardCount, setHardCount] = useState(new Array(questions.length).fill(0));
 
   const handleNext = (event) => {
-    if (nextQuestionIndex == 0){
+    setShowAnswer(false);
+    if (nextQuestionIndex == 0) {
       shuffleArray(randomSeq);
     }
-    setCurrentQuestion(s1chemistry[randomSeq[nextQuestionIndex]]);
-    setNextQuestionIndex((nextQuestionIndex + 1) % s1chemistry.length);
+    setCurrentQuestion(questions[randomSeq[nextQuestionIndex]]);
+    setNextQuestionIndex((nextQuestionIndex + 1) % questions.length);
+  }
+
+  const handleHard = (event) => {
+    currentQuestion['hardCount'] += 1;
+    handleNext(event);
   }
 
   useEffect(() => {
@@ -83,25 +85,43 @@ function MemoryCard() {
 
   return (
     <Grid container justifyContent="center" spacing={2}>
-      <Card className={classes.root}>
+      {/* {s1chemistry.map(ques => ( */}
+          
+<Card className={classes.root}>
         <CardContent className={classes.top}>
-          <Typography align="center" variant="body1" component="h1" className={classes.question}>
-          {currentQuestion['question']}
-          </Typography>
+          <Grid container>
+            {currentQuestion['question'].split('@').map(ee => (
+              <Grid item xs={12}>
+                <Typography align="center" variant="h6" component="h1" className={classes.question}>
+                  {ee}
+                </Typography>
+              </Grid>
+            ))}
+          </Grid>
         </CardContent>
         <CardActionArea className={classes.action} onClick={handleShowAnswer}>
           <CardContent>
             <Typography align="center" variant="body1" component="h1" className={classes.answer}>
-            {currentQuestion['answer']}
+              {showAnswer ? (currentQuestion['answer'].split('@').map(ee => (
+              <Grid item xs={12}>
+                <Typography align="center" variant="body1" component="h1" className={classes.question}>
+                  {ee}
+                </Typography>
+              </Grid>
+            ))) : ""}
             </Typography>
           </CardContent>
         </CardActionArea>
         <CardActions>
-          <Button size="large" variant="contained" color="primary" className={classes.button} startIcon={<RiEmotionHappyFill/>} onClick={handleNext}>
-            Next
+          <Button style={{ background: '#ff7b7b' }} size="large" variant="contained" color="primary" className={classes.button} startIcon={<RiEmotionUnhappyFill />} onClick={handleHard}>
+            很不行
+          </Button>
+          <Button style={{ background: '#1c8d79' }} size="large" variant="contained" color="primary" className={classes.button} startIcon={<RiEmotionHappyFill />} onClick={handleNext}>
+            简单
           </Button>
         </CardActions>
       </Card>
+      
     </Grid>
   );
 }
