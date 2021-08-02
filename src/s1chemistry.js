@@ -56,7 +56,7 @@ const s1chemistry = [
     },
     {
         question: "鉴定Fe²⁺ Fe³⁺",
-        answer: "1. NaOH: Fe²⁺产生绿色沉淀Fe(OH)₂且很快被氧化；Fe³⁺产生红褐色沉淀Fe(OH)₃ @ 2. Fe²⁺和黄色K₃Fe(CN)₆产生深蓝色Fe₃(Fe(CN)₆)₂；@Fe³⁺和黄色K₄Fe(CN)₆产生深蓝色Fe₄(Fe(CN)₆)₃ @ 3. H₂S: Fe²⁺产生黑色沉淀FeS；Fe³⁺产生黄色沉淀S @ 4. 无色KSCN：Fe²⁺无反应，Fe³⁺产生血红色离子[FeSCN]²⁺"
+        answer: "1. NaOH: Fe²⁺产生白色沉淀Fe(OH)₂迅速变成灰绿色沉淀，且很快被氧化成Fe(OH)₃；Fe³⁺产生红褐色沉淀Fe(OH)₃ @ 2. Fe²⁺和黄色K₃Fe(CN)₆产生深蓝色Fe₃(Fe(CN)₆)₂；@Fe³⁺和黄色K₄Fe(CN)₆产生深蓝色Fe₄(Fe(CN)₆)₃ @ 3. H₂S: Fe²⁺产生黑色沉淀FeS；Fe³⁺产生黄色沉淀S @ 4. 无色KSCN：Fe²⁺无反应，Fe³⁺产生血红色离子[FeSCN]²⁺"
     },
     {
         question: "鉴定Cu²⁺",
