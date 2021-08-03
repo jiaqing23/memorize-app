@@ -16,7 +16,7 @@ const s1chemistry = [
     },
     {
         question: "OH⁻ 溶解性",
-        answer: "只溶 H⁺ NH₄⁺ IA族 Ca⁺ Sr²⁺ Ba²⁺"
+        answer: "只溶 H⁺ NH₄⁺ IA族 Ca²⁺ Sr²⁺ Ba²⁺"
     },
     {
         question: "S²⁻ 溶解性",
@@ -180,7 +180,7 @@ const s1chemistry = [
     },
     {
         question: "炼铜",
-        answer: "2CuFeS₂+ O₂ -(焙烧)-> Cu₂S +2FeS +SO₂ @ 2Cu₂S + 3O₂ -(高温)-> 2Cu₂O + 2SO₂ @ 2Cu₂O + Cu2S -(高温)-> 6Cu + 2SO₂"
+        answer: "2CuFeS₂+ O₂ -(焙烧)-> Cu₂S +2FeS +SO₂ @ 2Cu₂S + 3O₂ -(高温)-> 2Cu₂O + 2SO₂ @ 2Cu₂O + Cu₂S -(高温)-> 6Cu + 2SO₂"
     },
     {
         question: "Ti³⁺颜色",
