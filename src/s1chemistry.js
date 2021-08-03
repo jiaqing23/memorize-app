@@ -79,7 +79,7 @@ const s1chemistry = [
         answer: "加入NaOH，放出刺激性气味的碱性气体（石蕊试纸）（NH₃+H₂O)"
     },
     {
-        question: "鉴定SO₄²⁺",
+        question: "鉴定SO₄²⁻",
         answer: "加入BaCl₂，生成白色BaSO₄沉淀，此沉淀不溶于HCl"
     },
     {
