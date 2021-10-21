@@ -15,6 +15,8 @@ import Typography from '@material-ui/core/Typography';
 import Slide from '@material-ui/core/Slide';
 import s1chemistry from './s1chemistry'
 import icon from './images/icon.png'
+import Grid from '@material-ui/core/Grid';
+
 
 
 const useStyles = makeStyles((theme) => ({
@@ -79,6 +81,15 @@ function App() {
             <>
               <ListItem button>
               <ListItemText primary={question['question']} secondary={"忘记"+ question['hardCount'] +"次"} />
+              <ListItemText primary={question['answer'].split('@').map(ee => (
+              <Grid item xs={12} align="left">
+                <Typography>
+                  {ee}
+                </Typography>
+              </Grid>
+            ))} />
+              
+              
               </ListItem>
               <Divider />
             </>
